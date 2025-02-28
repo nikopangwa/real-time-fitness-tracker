@@ -2,3 +2,9 @@
 
 This project will show a chart of the a real time-time-fitness-tracker.This monitors bodies in real-time ,It shows heart rate ,oxygen levels,muscle activity and more .
 
+##Project Links 
+
+* [SPECIFICATION.md]()
+* [ARCHITECTURE.md]()
+
+
