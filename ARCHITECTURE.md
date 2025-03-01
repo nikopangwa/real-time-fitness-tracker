@@ -22,3 +22,32 @@ C4Context
     Rel(user, [Real-Time Fitness Tracker], "Uses")
     Rel(device, [Real-Time Fitness Tracker], "Sends data to ")
     Rel([Real-Time Fitness Tracker], cloud, "Stores data in ")
+
+    
+C4Container
+    title Container Diagram for [Real-Time Fitness Tracker]
+    Container(mobile, "Mobile App", "Mobile application for users.", "Kotlin/Swift")
+    Container(api, "API Server", "Handles data processing and communication.", "Node.js/Python")
+    Container(database, "Database", "Stores user data.", "PostgreSQL/MongoDB")
+    Container(auth, "Authentication Service", "Handles user authentication.", "OAuth 2.0")
+
+    Rel(mobile, api, "uses API")
+    Rel(api, database, "Stores data in")
+    Rel(mobile, auth, "Authenticates with")
+    Rel(api, auth, "Authenticates with")
+
+C4Component
+    title Component Diagram for API Server
+    Container(api, "API Server", "Handles data processing and communication.", "Node.js/Python")
+    Component(data, "Data bProcessing", "Processes fitness data.", "Module")
+    Component(user, "User Management", "Manages user accounts.", "Module")
+    Component(storage, "Data Storage", "Handles database Interactions.", "Module")
+
+    Rel(api, data, "Uses")
+    Rel(api, user, "Uses")
+    Rel(api, storage, "Uses")
+
+    
+
+
+    
