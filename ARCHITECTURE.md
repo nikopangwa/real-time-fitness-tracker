@@ -91,7 +91,7 @@
 ```
 
 
-    ```mermaid
+   ```mermaid
     flowchart TD
     subgraph ActivityService["Activity Service"]
         ActivityController["Activity Controller\nExpress Router"]
@@ -147,7 +147,8 @@
     style APIGateway fill:#999999,stroke:#6B6B6B,color:#fff
     style NotificationService fill:#999999,stroke:#6B6B6B,color:#fff
     style Database fill:#1C7D36,stroke:#13591F,color:#fff
- ```
+
+```
 
     # Architectural Design
 
