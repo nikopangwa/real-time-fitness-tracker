@@ -1,23 +1,22 @@
-'''mermaid
-C4Context
-    title System Context diagram for Real-Time Fitness Tracker
+```mermaid
+    
+    graph TD
+    User[Fitness User] -->|Uses| Tracker[Real-Time Fitness Tracker]
+    Wearables[Wearable Devices] -->|Sends activity data| Tracker
+    Tracker -->|Exchanges health data| Health[Health Platforms]
+    Tracker -->|Shares achievements| Social[Social Media]
+    Tracker -->|Integrates nutrition data| Nutrition[Nutrition Applications]
+    User -->|Wears| Wearables
+    
+    classDef userClass fill:#4CAF50,stroke:#2E7D32,color:white;
+    classDef trackerClass fill:#2196F3,stroke:#1565C0,color:white;
+    classDef externalClass fill:#FF9800,stroke:#EF6C00,color:white;
+    
+    class User userClass;
+    class Tracker trackerClass;
+    class Wearables,Health,Social,Nutrition externalClass;
 
-    Person(user, "Fitness User", "A person who wants to track their fitness activities and health metrics")
-    
-    System(fitnessTracker, "Real-Time Fitness Tracker", "Allows users to track fitness activities, set goals, analyze performance, and receive recommendations")
-    
-    System_Ext(wearableDevices, "Wearable Devices", "Physical fitness trackers that collect user activity data")
-    System_Ext(healthAPIs, "Health Platforms", "Third-party health data platforms like Apple Health and Google Fit")
-    System_Ext(socialMedia, "Social Media Platforms", "Platforms for sharing achievements and connecting with friends")
-    System_Ext(nutritionApps, "Nutrition Applications", "Third-party apps for tracking food intake and nutrition")
-    
-    Rel(user, fitnessTracker, "Uses")
-    Rel(wearableDevices, fitnessTracker, "Sends activity data to")
-    Rel(fitnessTracker, healthAPIs, "Exchanges health data with")
-    Rel(fitnessTracker, socialMedia, "Shares achievements on")
-    Rel(fitnessTracker, nutritionApps, "Integrates nutrition data from")
-    Rel(user, wearableDevices, "Wears and interacts with")
-    '''
+```
 
     '''mermaid
   C4Container
