@@ -91,7 +91,7 @@
 ```
 
 
-    '''mermaid
+    ```mermaid
     C4Component
     title Component diagram for Activity Service
 
@@ -128,7 +128,7 @@
     Rel(activityManager, eventEmitter, "Publishes activity events to")
     Rel(eventEmitter, realTimeService, "Sends events to", "Message Queue")
     Rel(eventEmitter, notificationService, "Sends achievement notifications to", "Message Queue")
-    '''
+ ```
 
     # Architectural Design
 
