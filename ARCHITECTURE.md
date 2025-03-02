@@ -1,3 +1,4 @@
+'''mermaid
 C4Context
     title System Context diagram for Real-Time Fitness Tracker
 
@@ -16,8 +17,10 @@ C4Context
     Rel(fitnessTracker, socialMedia, "Shares achievements on")
     Rel(fitnessTracker, nutritionApps, "Integrates nutrition data from")
     Rel(user, wearableDevices, "Wears and interacts with")
+    '''
 
-    C4Container
+    '''mermaid
+  C4Container
     title Container diagram for Real-Time Fitness Tracker
 
     Person(user, "Fitness User", "A person who wants to track their fitness activities and health metrics")
@@ -63,7 +66,10 @@ C4Context
     Rel(apiGateway, healthAPIs, "Exchanges data with", "JSON/HTTPS")
     Rel(apiGateway, socialMedia, "Posts achievements to", "OAuth/REST")
     Rel(apiGateway, nutritionApps, "Retrieves nutrition data from", "REST")
+    '''
 
+
+    '''mermaid
     C4Component
     title Component diagram for Activity Service
 
@@ -100,6 +106,7 @@ C4Context
     Rel(activityManager, eventEmitter, "Publishes activity events to")
     Rel(eventEmitter, realTimeService, "Sends events to", "Message Queue")
     Rel(eventEmitter, notificationService, "Sends achievement notifications to", "Message Queue")
+    '''
 
     # Architectural Design
 
