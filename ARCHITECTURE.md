@@ -19,52 +19,16 @@
 ```
 
     '''mermaid
- 
-    title Container diagram for Real-Time Fitness Tracker
+     classDef person fill:#4CAF50,stroke:#2E7D32,color:#fff
+    classDef container fill:#2196F3,stroke:#1565C0,color:#fff
+    classDef database fill:#9C27B0,stroke:#6A1B9A,color:#fff
+    classDef external fill:#FF9800,stroke:#EF6C00,color:#fff
+    
+    class User person
+    class WebApp,MobileApp,APIGateway,RealTimeService,UserService,ActivityService,AnalyticsService,RecommendationEngine,NotificationService container
+    class Database,DataWarehouse database
+    class Wearables,HealthAPIs,SocialMedia,NutritionApps external
 
-    Person(user, "Fitness User", "A person who wants to track their fitness activities and health metrics")
-    
-    System_Boundary(fitnessTrackerSystem, "Real-Time Fitness Tracker") {
-        Container(webApp, "Web Application", "React, TypeScript", "Provides all fitness tracking functionality via web browser")
-        Container(mobileApp, "Mobile Application", "React Native", "Provides all fitness tracking functionality via mobile device")
-        Container(apiGateway, "API Gateway", "Express.js, Node.js", "Handles API requests from applications and devices")
-        Container(realTimeService, "Real-Time Service", "Node.js, Socket.io", "Processes and distributes real-time fitness data")
-        Container(userService, "User Service", "Node.js, Express", "Handles user authentication and profile management")
-        Container(activityService, "Activity Service", "Node.js, Express", "Manages workout data and activity tracking")
-        Container(analyticsService, "Analytics Service", "Python, Flask", "Analyzes user performance and generates insights")
-        Container(recommendationEngine, "Recommendation Engine", "Python, ML Models", "Generates personalized workout recommendations")
-        Container(notificationService, "Notification Service", "Node.js", "Sends alerts and reminders to users")
-        ContainerDb(database, "Database", "MongoDB", "Stores user profiles, activities, and analytics data")
-        ContainerDb(dataWarehouse, "Data Warehouse", "PostgreSQL", "Stores historical and aggregated data for analysis")
-    }
-    
-    System_Ext(wearableDevices, "Wearable Devices", "Physical fitness trackers")
-    System_Ext(healthAPIs, "Health Platforms", "Third-party health platforms")
-    System_Ext(socialMedia, "Social Media", "Social platforms")
-    System_Ext(nutritionApps, "Nutrition Apps", "Nutrition tracking apps")
-    
-    Rel(user, webApp, "Uses", "HTTPS")
-    Rel(user, mobileApp, "Uses", "HTTPS")
-    Rel(webApp, apiGateway, "Makes API calls to", "JSON/HTTPS")
-    Rel(mobileApp, apiGateway, "Makes API calls to", "JSON/HTTPS")
-    Rel(mobileApp, realTimeService, "Subscribes to real-time updates", "WebSockets")
-    Rel(webApp, realTimeService, "Subscribes to real-time updates", "WebSockets")
-    Rel(apiGateway, userService, "Routes user requests to", "JSON/HTTPS")
-    Rel(apiGateway, activityService, "Routes activity requests to", "JSON/HTTPS")
-    Rel(apiGateway, analyticsService, "Routes analytics requests to", "JSON/HTTPS")
-    Rel(realTimeService, activityService, "Sends real-time data to", "Message Queue")
-    Rel(activityService, database, "Reads from and writes to", "MongoDB Driver")
-    Rel(userService, database, "Reads from and writes to", "MongoDB Driver")
-    Rel(analyticsService, database, "Reads from", "MongoDB Driver")
-    Rel(analyticsService, dataWarehouse, "Reads from and writes to", "SQL")
-    Rel(analyticsService, recommendationEngine, "Requests recommendations from", "REST")
-    Rel(recommendationEngine, dataWarehouse, "Reads historical data from", "SQL")
-    Rel(notificationService, recommendationEngine, "Receives scheduled recommendations from", "Message Queue")
-    Rel(notificationService, mobileApp, "Sends push notifications to", "Firebase")
-    Rel(wearableDevices, apiGateway, "Sends data to", "JSON/HTTPS")
-    Rel(apiGateway, healthAPIs, "Exchanges data with", "JSON/HTTPS")
-    Rel(apiGateway, socialMedia, "Posts achievements to", "OAuth/REST")
-    Rel(apiGateway, nutritionApps, "Retrieves nutrition data from", "REST")
     '''
 
 
