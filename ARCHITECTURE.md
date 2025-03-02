@@ -19,15 +19,73 @@
 ```
 
     '''mermaid
-     classDef person fill:#4CAF50,stroke:#2E7D32,color:#fff
-    classDef container fill:#2196F3,stroke:#1565C0,color:#fff
-    classDef database fill:#9C27B0,stroke:#6A1B9A,color:#fff
-    classDef external fill:#FF9800,stroke:#EF6C00,color:#fff
+     flowchart TD
+    User["Fitness User"]
     
-    class User person
-    class WebApp,MobileApp,APIGateway,RealTimeService,UserService,ActivityService,AnalyticsService,RecommendationEngine,NotificationService container
-    class Database,DataWarehouse database
-    class Wearables,HealthAPIs,SocialMedia,NutritionApps external
+    subgraph FitnessTrackerSystem["Real-Time Fitness Tracker System"]
+        WebApp["Web Application\nReact, TypeScript"]
+        MobileApp["Mobile Application\nReact Native"]
+        APIGateway["API Gateway\nExpress.js, Node.js"]
+        RealTimeService["Real-Time Service\nNode.js, Socket.io"]
+        UserService["User Service\nNode.js, Express"]
+        ActivityService["Activity Service\nNode.js, Express"]
+        AnalyticsService["Analytics Service\nPython, Flask"]
+        RecommendationEngine["Recommendation Engine\nPython, ML Models"]
+        NotificationService["Notification Service\nNode.js"]
+        Database[(Database\nMongoDB)]
+        DataWarehouse[(Data Warehouse\nPostgreSQL)]
+    end
+    
+    Wearables["Wearable Devices"]
+    HealthAPIs["Health Platforms"]
+    SocialMedia["Social Media"]
+    NutritionApps["Nutrition Apps"]
+    
+    User -->|uses| WebApp
+    User -->|uses| MobileApp
+    WebApp -->|API calls| APIGateway
+    MobileApp -->|API calls| APIGateway
+    WebApp -->|websockets| RealTimeService
+    MobileApp -->|websockets| RealTimeService
+    
+    APIGateway -->|routes to| UserService
+    APIGateway -->|routes to| ActivityService
+    APIGateway -->|routes to| AnalyticsService
+    
+    RealTimeService -->|sends data| ActivityService
+    
+    UserService -->|reads/writes| Database
+    ActivityService -->|reads/writes| Database
+    AnalyticsService -->|reads| Database
+    AnalyticsService -->|reads/writes| DataWarehouse
+    
+    AnalyticsService -->|requests| RecommendationEngine
+    RecommendationEngine -->|reads from| DataWarehouse
+    
+    RecommendationEngine -->|sends recs| NotificationService
+    NotificationService -->|push notifications| MobileApp
+    
+    Wearables -->|sends data| APIGateway
+    APIGateway -->|exchanges data| HealthAPIs
+    APIGateway -->|posts to| SocialMedia
+    APIGateway -->|retrieves from| NutritionApps
+    
+    style User fill:#08427B,stroke:#052E56,color:#fff
+    style WebApp fill:#0B4884,stroke:#052E56,color:#fff
+    style MobileApp fill:#0B4884,stroke:#052E56,color:#fff
+    style APIGateway fill:#0B4884,stroke:#052E56,color:#fff
+    style RealTimeService fill:#0B4884,stroke:#052E56,color:#fff
+    style UserService fill:#0B4884,stroke:#052E56,color:#fff
+    style ActivityService fill:#0B4884,stroke:#052E56,color:#fff
+    style AnalyticsService fill:#0B4884,stroke:#052E56,color:#fff
+    style RecommendationEngine fill:#0B4884,stroke:#052E56,color:#fff
+    style NotificationService fill:#0B4884,stroke:#052E56,color:#fff
+    style Database fill:#1C7D36,stroke:#13591F,color:#fff
+    style DataWarehouse fill:#1C7D36,stroke:#13591F,color:#fff
+    style Wearables fill:#999999,stroke:#6B6B6B,color:#fff
+    style HealthAPIs fill:#999999,stroke:#6B6B6B,color:#fff
+    style SocialMedia fill:#999999,stroke:#6B6B6B,color:#fff
+    style NutritionApps fill:#999999,stroke:#6B6B6B,color:#fff
 
     '''
 
