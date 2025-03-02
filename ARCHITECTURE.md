@@ -19,7 +19,7 @@
 ```
 
     '''mermaid
- C4Container
+ 
     title Container diagram for Real-Time Fitness Tracker
 
     Person(user, "Fitness User", "A person who wants to track their fitness activities and health metrics")
