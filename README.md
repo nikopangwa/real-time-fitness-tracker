@@ -1,10 +1,10 @@
-#[ real-time-fitness-tracker]
+# [Real-Time Fitness Tracker]
 
-This project will show a chart of the a real time-time-fitness-tracker.This monitors bodies in real-time ,It shows heart rate ,oxygen levels,muscle activity and more .
+## Introduction
+[This project will show a chart of the real-time fitness tracker.This monitors bodies in real-time ,it shows heart rate, oxygen levels, muscle activity and more]
 
-##Project Links 
-
-* [SPECIFICATION.md]()
-* [ARCHITECTURE.md]()
+## Documentation
+- [System Specification Document](SPECIFICATION.md)
+- [Architectural Design Document](ARCHITECTURE.md)
 
 
