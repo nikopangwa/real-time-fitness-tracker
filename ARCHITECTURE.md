@@ -18,7 +18,7 @@
 
 ```
 
-    '''mermaid
+```mermaid
      flowchart TD
     User["Fitness User"]
     
@@ -87,7 +87,8 @@
     style SocialMedia fill:#999999,stroke:#6B6B6B,color:#fff
     style NutritionApps fill:#999999,stroke:#6B6B6B,color:#fff
 
-    '''
+  
+```
 
 
     '''mermaid
