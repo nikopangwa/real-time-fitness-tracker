@@ -91,43 +91,61 @@
 ```
 
 
-    ```mermaid
-    C4Component
-    title Component diagram for Activity Service
-
-    Container_Boundary(activityService, "Activity Service") {
-        Component(activityController, "Activity Controller", "Express Router", "Handles HTTP requests related to activities and workouts")
-        Component(activityManager, "Activity Manager", "TypeScript", "Business logic for processing activity data")
-        Component(workoutProcessor, "Workout Processor", "TypeScript", "Processes and validates workout data")
-        Component(goalTracker, "Goal Tracker", "TypeScript", "Tracks user progress toward fitness goals")
-        Component(metricCalculator, "Metric Calculator", "TypeScript", "Calculates derived metrics from raw activity data")
-        Component(deviceConnector, "Device Connector", "TypeScript", "Handles data from various wearable devices")
-        Component(dataValidator, "Data Validator", "TypeScript", "Validates incoming fitness data")
-        Component(activityRepository, "Activity Repository", "TypeScript", "Data access layer for activity data")
-        Component(goalRepository, "Goal Repository", "TypeScript", "Data access layer for goal data")
-        Component(eventEmitter, "Event Emitter", "TypeScript", "Publishes events to the message queue")
-    }
+    ```mermaidflowchart TD
+    subgraph ActivityService["Activity Service"]
+        ActivityController["Activity Controller\nExpress Router"]
+        ActivityManager["Activity Manager\nTypeScript"]
+        WorkoutProcessor["Workout Processor\nTypeScript"]
+        GoalTracker["Goal Tracker\nTypeScript"]
+        MetricCalculator["Metric Calculator\nTypeScript"]
+        DeviceConnector["Device Connector\nTypeScript"]
+        DataValidator["Data Validator\nTypeScript"]
+        ActivityRepo["Activity Repository\nTypeScript"]
+        GoalRepo["Goal Repository\nTypeScript"]
+        EventEmitter["Event Emitter\nTypeScript"]
+    end
     
-    ContainerDb(database, "Database", "MongoDB", "Stores user activities and goals")
-    Container(realTimeService, "Real-Time Service", "Node.js", "Distributes real-time updates")
-    Container(apiGateway, "API Gateway", "Express.js", "Routes API requests")
-    Container(notificationService, "Notification Service", "Node.js", "Sends notifications")
+    Database[(Database\nMongoDB)]
+    RealTimeService["Real-Time Service"]
+    APIGateway["API Gateway"]
+    NotificationService["Notification Service"]
     
-    Rel(apiGateway, activityController, "Sends activity requests to", "REST")
-    Rel(activityController, activityManager, "Uses")
-    Rel(activityManager, workoutProcessor, "Uses")
-    Rel(activityManager, goalTracker, "Uses")
-    Rel(activityManager, metricCalculator, "Uses")
-    Rel(workoutProcessor, deviceConnector, "Uses")
-    Rel(deviceConnector, dataValidator, "Uses")
-    Rel(activityManager, activityRepository, "Uses")
-    Rel(goalTracker, goalRepository, "Uses")
-    Rel(activityRepository, database, "Reads from and writes to", "MongoDB Driver")
-    Rel(goalRepository, database, "Reads from and writes to", "MongoDB Driver")
-    Rel(goalTracker, eventEmitter, "Publishes goal events to")
-    Rel(activityManager, eventEmitter, "Publishes activity events to")
-    Rel(eventEmitter, realTimeService, "Sends events to", "Message Queue")
-    Rel(eventEmitter, notificationService, "Sends achievement notifications to", "Message Queue")
+    APIGateway -->|REST| ActivityController
+    ActivityController --> ActivityManager
+    
+    ActivityManager --> WorkoutProcessor
+    ActivityManager --> GoalTracker
+    ActivityManager --> MetricCalculator
+    
+    WorkoutProcessor --> DeviceConnector
+    DeviceConnector --> DataValidator
+    
+    ActivityManager --> ActivityRepo
+    GoalTracker --> GoalRepo
+    
+    ActivityRepo -->|reads/writes| Database
+    GoalRepo -->|reads/writes| Database
+    
+    GoalTracker --> EventEmitter
+    ActivityManager --> EventEmitter
+    
+    EventEmitter -->|events| RealTimeService
+    EventEmitter -->|notifications| NotificationService
+    
+    style ActivityController fill:#555555,stroke:#333333,color:#fff
+    style ActivityManager fill:#555555,stroke:#333333,color:#fff
+    style WorkoutProcessor fill:#555555,stroke:#333333,color:#fff
+    style GoalTracker fill:#555555,stroke:#333333,color:#fff
+    style MetricCalculator fill:#555555,stroke:#333333,color:#fff
+    style DeviceConnector fill:#555555,stroke:#333333,color:#fff
+    style DataValidator fill:#555555,stroke:#333333,color:#fff
+    style ActivityRepo fill:#555555,stroke:#333333,color:#fff
+    style GoalRepo fill:#555555,stroke:#333333,color:#fff
+    style EventEmitter fill:#555555,stroke:#333333,color:#fff
+    style RealTimeService fill:#999999,stroke:#6B6B6B,color:#fff
+    style APIGateway fill:#999999,stroke:#6B6B6B,color:#fff
+    style NotificationService fill:#999999,stroke:#6B6B6B,color:#fff
+    style Database fill:#1C7D36,stroke:#13591F,color:#fff
  ```
 
     # Architectural Design
