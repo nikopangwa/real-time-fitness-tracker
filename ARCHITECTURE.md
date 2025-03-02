@@ -91,7 +91,8 @@
 ```
 
 
-    ```mermaidflowchart TD
+    ```mermaid
+    flowchart TD
     subgraph ActivityService["Activity Service"]
         ActivityController["Activity Controller\nExpress Router"]
         ActivityManager["Activity Manager\nTypeScript"]
