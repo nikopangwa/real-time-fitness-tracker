@@ -13,3 +13,17 @@
 | FR8 | The system shall support fitness challenges with friends. | Users can invite friends to join step or workout competitions. |
 | FR9 | The system shall provide a dashboard summarizing all fitness activities. | Dashboard includes heart rate, steps, distance, calories, and workout history. |
 | FR10 | The system shall export fitness data for external use. | Users can download CSV reports of their activity logs. |
+
+
+### Non-Functional Requirements
+
+| **Category**     | **Requirement** |
+|-----------------|--------------------------------------------------------------|
+| **Usability**    | The system shall comply with WCAG 2.1 accessibility standards. |
+| **Deployability** | The system shall be deployable on Windows, macOS, and Linux servers. |
+| **Maintainability** | The system documentation shall include an API guide for future integrations. |
+| **Scalability** | The system shall support 1,000 concurrent users during peak hours. |
+| **Security** | All user data shall be encrypted using AES-256. |
+| **Performance** | Search results shall load within 2 seconds. |
+| **Reliability** | The system shall achieve 99.5% uptime with automatic recovery mechanisms. |
+| **Compliance** | The system shall comply with HIPAA and GDPR regulations for health data privacy. |
