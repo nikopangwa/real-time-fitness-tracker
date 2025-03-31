@@ -1,16 +1,8 @@
-# Template Analysis
+# 📌 GitHub Project Template Comparison  
 
-## Comparison of GitHub Project Templates
-
-| Template Name       | Columns                 | Automation Features                          | Suitability for Agile |
-|---------------------|------------------------|---------------------------------------------|----------------------|
-| **Basic Kanban**   | To Do, In Progress, Done | Manual task movement                        | Good for simple tracking |
-| **Automated Kanban** | To Do, In Progress, Done | Auto-moves issues based on status changes   | Ideal for Agile sprints |
-| **Team Planning**   | Backlog, Ready, In Progress, Done | Supports cross-team collaboration | Best for large teams |
-
-## Justification for Template Choice
-
-For this project, I have selected **Automated Kanban** because:
-1. **Built-in automation** reduces manual effort in moving issues.
-2. **Supports sprint tracking**, aligning well with Agile methodologies.
-3. **Enhances traceability** by linking issues from the backlog.
+| **Template**        | **Columns & Workflow**                                           | **Automation Features**                                  | **Agile Suitability** |
+|---------------------|----------------------------------------------------------------|-------------------------------------------------|-----------------|
+| **Basic Kanban**    | Default: *To Do, In Progress, Done*                            | ❌ No automation; manual movement of tasks required | ✅ Simple, flexible, good for small teams or less structured projects |
+| **Automated Kanban** | Default: *To Do, In Progress, Review, Done*                  | ✅ Auto-moves issues based on commits, PRs, and closures | ✅✅ Best for Agile teams needing sprint tracking and automation |
+| **Bug Triage**      | Default: *New Issues, High Priority, Low Priority, Closed*    | ✅ Issues are automatically categorized based on labels | ✅ Great for Agile teams focused on issue tracking & prioritization |
+| **Team Planning**   | Default: *Backlog, To Do, In Progress, In Review, Done*       | ✅ Supports milestones & priorities; can integrate with workflows | ✅✅ Best for roadmap planning in Agile projects |
