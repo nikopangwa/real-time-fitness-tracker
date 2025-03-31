@@ -57,10 +57,6 @@ Although the Kanban board is currently empty, the **structure and workflow** are
 
 ---
 
-### 📅 Project Links  
-- **GitHub Issues**: [View all issues](https://github.com/your-repo/issues)  
-- **Kanban Board**: [View Kanban board](https://github.com/your-repo/projects)
-
 ---
 
 
