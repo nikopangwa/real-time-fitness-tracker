@@ -63,12 +63,6 @@ Although the Kanban board is currently empty, the **structure and workflow** are
 
 ---
 
-## 🚀 How to Contribute  
-1️⃣ Fork this repository.  
-2️⃣ Create a new branch (`git checkout -b feature/task-name`).  
-3️⃣ Add your tasks and changes.  
-4️⃣ Push the branch to your fork (`git push origin feature/task-name`).  
-5️⃣ Submit a pull request.
 
 ---
 
