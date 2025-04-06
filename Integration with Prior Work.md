@@ -1,6 +1,6 @@
 ## 🔗 Integration with Prior Work
 
-This section maps the **State Transition Diagrams** and **Activity Diagrams** created in Assignment 8 to functional requirements (from Assignment 4) and Agile user stories (from Assignment 6).
+
 
 ---
 
@@ -33,20 +33,5 @@ This section maps the **State Transition Diagrams** and **Activity Diagrams** cr
 
 ---
 
-### 📁 README Linking (GitHub Integration)
 
-To maintain clear documentation, link your diagrams and explanations in your GitHub `README.md`:
-
-```markdown
-## 📊 Diagrams and Modeling (Assignment 8)
-
-- [📘 State Transition Diagrams](./diagrams/state_diagrams.md)
-- [🌀 Activity Workflow Diagrams](./diagrams/activity_diagrams.md)
-- [📖 Diagram Explanations](./diagrams/diagrams_explanation.md)
-- [🔍 Integration with Prior Work](./integration_with_prior_work.md)
-- [💡 Reflection](./assignment8_reflection.md)
-
-These diagrams directly trace back to:
-- [Functional Requirements (Assignment 4)](../Assignment4/requirements.md)
-- [User Stories and Tasks (Assignment 6)](../Assignment6/user_stories.md)
 
