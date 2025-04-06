@@ -19,3 +19,13 @@ stateDiagram
     InProgress --> Completed : Finish
     Completed --> [*]
 ```
+
+```mermaid
+stateDiagram
+    [*] --> Set
+    Set --> Active : Begin tracking
+    Active --> Achieved : Goal met
+    Active --> Abandoned : Cancelled
+    Achieved --> [*]
+    Abandoned --> [*]
+```
