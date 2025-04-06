@@ -39,7 +39,7 @@ stateDiagram-v2
     Pending --> Failed : Insufficient funds
     Failed --> Pending : Retry
     Completed --> [*]
-
+```
 
 ```mermaid
 
