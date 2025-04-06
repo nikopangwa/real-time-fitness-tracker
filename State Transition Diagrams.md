@@ -10,3 +10,12 @@ stateDiagram
 
 ```
 
+```mermaid
+stateDiagram
+    [*] --> Scheduled
+    Scheduled --> InProgress : Start
+    InProgress --> Paused : Pause
+    Paused --> InProgress : Resume
+    InProgress --> Completed : Finish
+    Completed --> [*]
+```
