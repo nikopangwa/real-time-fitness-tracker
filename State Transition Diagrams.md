@@ -1,12 +1,13 @@
 ```mermaid
-stateDiagram
-    [*] --> Registered
+stateDiagram-v2
+    [*] --> Registered : User signs up
     Registered --> Verified : Email confirmed
     Verified --> Suspended : Policy violation
-    Verified --> Deactivated : User deactivates
-    Suspended --> Reactivated : Admin restores
+    Verified --> Deactivated : User request
+    Suspended --> Reactivated : Admin approval
     Deactivated --> [*]
     Reactivated --> Verified
+
 
 ```
 
@@ -21,30 +22,34 @@ stateDiagram
 ```
 
 ```mermaid
-stateDiagram
-    [*] --> Set
-    Set --> Active : Begin tracking
+stateDiagram-v2
+    [*] --> Set : User sets goal
+    Set --> Active : User starts tracking
     Active --> Achieved : Goal met
-    Active --> Abandoned : Cancelled
+    Active --> Abandoned : User cancels goal
     Achieved --> [*]
     Abandoned --> [*]
+
+
 ```
 ```mermaid
-stateDiagram
-    [*] --> Pending
-    Pending --> Completed : Success
-    Pending --> Failed : Declined
+stateDiagram-v2
+    [*] --> Pending : User initiates payment
+    Pending --> Completed : Payment successful
+    Pending --> Failed : Insufficient funds
     Failed --> Pending : Retry
     Completed --> [*]
-```
+
 
 ```mermaid
 
-stateDiagram
-    [*] --> Trial
-    Trial --> Active : Payment
-    Active --> Expired : Time up
-    Expired --> Renewed : User renews
-    Renewed --> Active
+stateDiagram-v2
+    [*] --> NotTracking
+    NotTracking --> Tracking : User enables tracker
+    Tracking --> Paused : User pauses tracking
+    Paused --> Tracking : Resume tracking
+    Tracking --> Stopped : User stops tracking
+    Stopped --> [*]
+
 ```
 
