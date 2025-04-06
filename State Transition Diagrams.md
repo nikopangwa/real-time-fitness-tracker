@@ -29,3 +29,22 @@ stateDiagram
     Achieved --> [*]
     Abandoned --> [*]
 ```
+```mermaid
+stateDiagram
+    [*] --> Pending
+    Pending --> Completed : Success
+    Pending --> Failed : Declined
+    Failed --> Pending : Retry
+    Completed --> [*]
+```
+
+```mermaid
+
+stateDiagram
+    [*] --> Trial
+    Trial --> Active : Payment
+    Active --> Expired : Time up
+    Expired --> Renewed : User renews
+    Renewed --> Active
+```
+
