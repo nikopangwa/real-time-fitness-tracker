@@ -1,3 +1,4 @@
+```mermaid
 stateDiagram
     [*] --> Registered
     Registered --> Verified : Email confirmed
@@ -7,4 +8,5 @@ stateDiagram
     Deactivated --> [*]
     Reactivated --> Verified
 
+```
 
