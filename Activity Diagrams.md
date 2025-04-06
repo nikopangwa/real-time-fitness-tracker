@@ -1,3 +1,5 @@
+```mermaid
+
 graph TD
     A[Start] --> B[Enter Details]
     B --> C[Validate Email]
@@ -8,3 +10,4 @@ graph TD
     G --> H[Account Verified]
     H --> I[End]
 
+```
