@@ -53,3 +53,23 @@ stateDiagram-v2
 
 ```
 
+```mermaid
+
+stateDiagram-v2
+    [*] --> Trial : New user
+    Trial --> Active : Subscription purchased
+    Active --> Expired : Time limit reached
+    Expired --> Renewed : User renews
+    Renewed --> Active
+```
+
+```mermaid
+
+stateDiagram-v2
+    [*] --> Draft : User starts writing
+    Draft --> Submitted : User submits
+    Submitted --> Reviewed : Admin reads
+    Reviewed --> Responded : Admin responds
+    Responded --> [*]
+
+```
