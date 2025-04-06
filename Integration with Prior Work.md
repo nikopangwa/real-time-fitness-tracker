@@ -1,10 +1,10 @@
-## 🔗 Integration with Prior Work
+Integration with Prior Work
 
 
 
 ---
 
-### 🧩 State Transition Diagram Mapping
+State Transition Diagram Mapping
 
 | Object              | Functional Requirement(s)                    | Related User Story(ies)                                  |
 |---------------------|----------------------------------------------|-----------------------------------------------------------|
@@ -18,7 +18,7 @@
 
 ---
 
-### 🌀 Activity Diagram Mapping
+ Activity Diagram Mapping
 
 | Workflow            | Functional Requirement(s)                    | Related User Story(ies)                                  |
 |----------------------|----------------------------------------------|-----------------------------------------------------------|
