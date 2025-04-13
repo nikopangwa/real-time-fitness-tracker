@@ -1,3 +1,4 @@
+```mermaid
  Domain Model – Real-Time Fitness Tracker
 
 Key Entities and Attributes
@@ -56,4 +57,6 @@ Relationships
 - A **Goal** automatically updates **status** based on currentProgress vs. targetValue.
 - A **Device** must be "Online" to send **FitnessData".
 - **Notifications** are marked as read when the user views them.
+
+```
 
