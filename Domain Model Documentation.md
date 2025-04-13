@@ -1,4 +1,4 @@
-```mermaid
+
  Domain Model – Real-Time Fitness Tracker
 
 Key Entities and Attributes
@@ -58,5 +58,5 @@ Relationships
 - A **Device** must be "Online" to send **FitnessData".
 - **Notifications** are marked as read when the user views them.
 
-```
+
 
