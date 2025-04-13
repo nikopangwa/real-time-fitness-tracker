@@ -62,3 +62,16 @@ User "1" -- "0..*" Device : owns
 WorkoutSession "1" -- "0..*" FitnessData : collects
 Device "1" -- "0..*" FitnessData : transmits
 
+---
+
+ Class Diagram Design Explanation
+
+- **User** is the central actor who owns devices, receives notifications, and tracks fitness goals.
+- **Device** transmits **FitnessData**, which is tied to **WorkoutSessions**.
+- **Goal** and **Notification** entities personalize and enhance the fitness experience.
+- Multiplicities show that users can have multiple sessions, goals, and devices.
+- Operations (e.g., `markAsRead()`, `updateProgress()`) reflect essential system behaviors.
+- Aggregation is implied (not explicitly drawn) in relationships like User → Device, where the lifecycle is independent.
+
+---
+
