@@ -1,59 +1,44 @@
- Domain Model – Real-Time Fitness Tracker
-
- Key Entities and Attributes
- 
- 1. User
+ classDiagram
+class User {
 - userId: String
 - name: String
-- email: String
-- role: Enum {Athlete, Coach, Admin}
-
-2. WorkoutSession
++ logWorkout()
++ trackProgress()
+}
+class Device {
+- deviceId: String
+- deviceType: String
++ syncData()
+}
+class WorkoutSession {
 - sessionId: String
 - startTime: DateTime
 - endTime: DateTime
-- status: Enum {Scheduled, InProgress, Completed, Canceled}
-- type: Enum {Cardio, Strength, HIIT}
-
- 3. Device
-- deviceId: String
-- deviceType: String
-- batteryLevel: Int
-- status: Enum {Online, Offline}
-- 
- 4. FitnessData
++ startSession()
++ endSession()
+}
+class FitnessData {
 - dataId: String
 - heartRate: Int
 - steps: Int
-- calories: Float
-- timestamp: DateTime
-
- 5. Goal
++ calculateMetrics()
+}
+class Goal {
 - goalId: String
-- type: Enum {WeightLoss, Endurance, Strength}
-- targetValue: Float
-- currentProgress: Float
-- status: Enum {InProgress, Achieved, Failed}
-
-6. Notification
+- goalType: String
+- targetValue: Int
++ updateProgress()
++ isAchieved()
+}
+class Notification {
 - notificationId: String
 - message: String
-- timestamp: DateTime
-- read: Boolean
++ send()
+}
 
-Relationships
-
-- A **User** can participate in multiple **WorkoutSessions**.
-- A **WorkoutSession** collects **FitnessData** in real time.
-- Each **User** can own multiple **Devices**.
-- A **Device** sends **FitnessData** to the system.
-- **Users** can set multiple **Goals**.
-- The system sends **Notifications** to **Users** based on progress or alerts.
-
- Business Logic Rules
-
-- A **WorkoutSession** can only be "Completed" if it was "InProgress".
-- A **Goal** automatically updates **status** based on currentProgress vs. targetValue.
-- A **Device** must be "Online" to send **FitnessData".
-- **Notifications** are marked as read when the user views them.
-
+User "1" -- "0..*" WorkoutSession : initiates
+User "1" -- "1..*" Goal : sets
+Device "1" -- "0..*" FitnessData : syncsTo
+WorkoutSession "1" -- "1..*" FitnessData : records
+Goal "1" --> "0..*" FitnessData : evaluates
+User "1" -- "0..*" Notification : receives
