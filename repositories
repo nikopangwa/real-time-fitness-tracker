@@ -1,1 +1,62 @@
+package repositories;
+
+import java.util.List;
+
+public interface Repository<T, ID> {
+    void save(T entity);
+    T findById(ID id);
+    List<T> findAll();
+    void deleteById(ID id);
+}
+
+package repositories;
+
+import entities.User;
+
+public interface UserRepository extends Repository<User, String> {
+}
+
+package repositories;
+
+import entities.Workout;
+
+public interface WorkoutRepository extends Repository<Workout, String> {
+}
+
+package repositories;
+
+import entities.Profile;
+
+public interface ProfileRepository extends Repository<Profile, String> {
+}
+
+package repositories;
+
+import entities.Metrics;
+
+public interface MetricsRepository extends Repository<Metrics, String> {
+}
+
+
+package repositories;
+
+import entities.Goal;
+
+public interface GoalRepository extends Repository<Goal, String> {
+}
+
+package repositories;
+
+import entities.Notification;
+
+public interface NotificationRepository extends Repository<Notification, String> {
+}
+
+
+package repositories;
+
+import entities.Device;
+
+public interface DeviceRepository extends Repository<Device, String> {
+}
 
