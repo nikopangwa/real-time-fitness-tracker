@@ -1,1 +1,86 @@
 
+package factories;
+
+import repositories.UserRepository;
+import repositories.WorkoutRepository;
+import repositories.ProfileRepository;
+import repositories.MetricsRepository;
+import repositories.GoalRepository;
+import repositories.NotificationRepository;
+import repositories.DeviceRepository;
+
+import repositories.inmemory.InMemoryUserRepository;
+import repositories.inmemory.InMemoryWorkoutRepository;
+import repositories.inmemory.InMemoryProfileRepository;
+import repositories.inmemory.InMemoryMetricsRepository;
+import repositories.inmemory.InMemoryGoalRepository;
+import repositories.inmemory.InMemoryNotificationRepository;
+import repositories.inmemory.InMemoryDeviceRepository;
+
+public class RepositoryFactory {
+
+    // Factory method to get the appropriate repository based on storage type
+    public static UserRepository getUserRepository(String storageType) {
+        switch (storageType) {
+            case "MEMORY":
+                return new InMemoryUserRepository();
+            // Future option: case "DATABASE": return new DatabaseUserRepository();
+            default:
+                throw new IllegalArgumentException("Invalid storage type");
+        }
+    }
+
+    public static WorkoutRepository getWorkoutRepository(String storageType) {
+        switch (storageType) {
+            case "MEMORY":
+                return new InMemoryWorkoutRepository();
+            default:
+                throw new IllegalArgumentException("Invalid storage type");
+        }
+    }
+
+    public static ProfileRepository getProfileRepository(String storageType) {
+        switch (storageType) {
+            case "MEMORY":
+                return new InMemoryProfileRepository();
+            default:
+                throw new IllegalArgumentException("Invalid storage type");
+        }
+    }
+
+    public static MetricsRepository getMetricsRepository(String storageType) {
+        switch (storageType) {
+            case "MEMORY":
+                return new InMemoryMetricsRepository();
+            default:
+                throw new IllegalArgumentException("Invalid storage type");
+        }
+    }
+
+    public static GoalRepository getGoalRepository(String storageType) {
+        switch (storageType) {
+            case "MEMORY":
+                return new InMemoryGoalRepository();
+            default:
+                throw new IllegalArgumentException("Invalid storage type");
+        }
+    }
+
+    public static NotificationRepository getNotificationRepository(String storageType) {
+        switch (storageType) {
+            case "MEMORY":
+                return new InMemoryNotificationRepository();
+            default:
+                throw new IllegalArgumentException("Invalid storage type");
+        }
+    }
+
+    public static DeviceRepository getDeviceRepository(String storageType) {
+        switch (storageType) {
+            case "MEMORY":
+                return new InMemoryDeviceRepository();
+            default:
+                throw new IllegalArgumentException("Invalid storage type");
+        }
+    }
+}
