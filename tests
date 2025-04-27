@@ -1,1 +1,347 @@
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class InMemoryUserRepositoryTest {
+
+    private InMemoryUserRepository userRepository;
+    private User testUser;
+
+    @BeforeEach
+    void setUp() {
+        userRepository = new InMemoryUserRepository(); // Initialize the in-memory repository
+        testUser = new User("1", "John Doe", "johndoe@example.com"); // Create a test user
+    }
+
+    @Test
+    void testSaveUser() {
+        userRepository.save(testUser); // Save the test user
+        User retrievedUser = userRepository.findById("1"); // Retrieve the user by ID
+        assertNotNull(retrievedUser, "User should be saved and retrievable");
+        assertEquals(testUser.getId(), retrievedUser.getId(), "User ID should match");
+        assertEquals(testUser.getName(), retrievedUser.getName(), "User name should match");
+    }
+
+    @Test
+    void testFindUserById() {
+        userRepository.save(testUser); // Save the test user
+        User retrievedUser = userRepository.findById("1"); // Retrieve the user by ID
+        assertNotNull(retrievedUser, "User should be found");
+        assertEquals(testUser.getId(), retrievedUser.getId(), "User ID should match");
+    }
+
+    @Test
+    void testUpdateUser() {
+        userRepository.save(testUser); // Save the test user
+        testUser.setName("John Updated"); // Update user name
+        userRepository.save(testUser); // Save the updated user
+        User retrievedUser = userRepository.findById("1"); // Retrieve the user by ID
+        assertEquals("John Updated", retrievedUser.getName(), "User name should be updated");
+    }
+
+    @Test
+    void testDeleteUser() {
+        userRepository.save(testUser); // Save the test user
+        userRepository.delete("1"); // Delete the user by ID
+        User retrievedUser = userRepository.findById("1"); // Try to retrieve the deleted user
+        assertNull(retrievedUser, "User should be deleted and no longer retrievable");
+    }
+
+    @Test
+    void testFindAllUsers() {
+        userRepository.save(testUser); // Save the test user
+        User anotherUser = new User("2", "Jane Doe", "janedoe@example.com");
+        userRepository.save(anotherUser); // Save another user
+        var users = userRepository.findAll(); // Retrieve all users
+        assertEquals(2, users.size(), "There should be two users in the repository");
+    }
+}
+
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class InMemoryWorkoutRepositoryTest {
+
+    private InMemoryWorkoutRepository workoutRepository;
+    private Workout testWorkout;
+
+    @BeforeEach
+    void setUp() {
+        workoutRepository = new InMemoryWorkoutRepository(); // Initialize the in-memory repository
+        testWorkout = new Workout("1", "Morning Run", 30); // Create a test workout
+    }
+
+    @Test
+    void testSaveWorkout() {
+        workoutRepository.save(testWorkout); // Save the test workout
+        Workout retrievedWorkout = workoutRepository.findById("1"); // Retrieve the workout by ID
+        assertNotNull(retrievedWorkout, "Workout should be saved and retrievable");
+        assertEquals(testWorkout.getId(), retrievedWorkout.getId(), "Workout ID should match");
+        assertEquals(testWorkout.getName(), retrievedWorkout.getName(), "Workout name should match");
+    }
+
+    @Test
+    void testFindWorkoutById() {
+        workoutRepository.save(testWorkout); // Save the test workout
+        Workout retrievedWorkout = workoutRepository.findById("1"); // Retrieve the workout by ID
+        assertNotNull(retrievedWorkout, "Workout should be found");
+        assertEquals(testWorkout.getId(), retrievedWorkout.getId(), "Workout ID should match");
+    }
+
+    @Test
+    void testUpdateWorkout() {
+        workoutRepository.save(testWorkout); // Save the test workout
+        testWorkout.setName("Afternoon Run"); // Update workout name
+        workoutRepository.save(testWorkout); // Save the updated workout
+        Workout retrievedWorkout = workoutRepository.findById("1"); // Retrieve the workout by ID
+        assertEquals("Afternoon Run", retrievedWorkout.getName(), "Workout name should be updated");
+    }
+
+    @Test
+    void testDeleteWorkout() {
+        workoutRepository.save(testWorkout); // Save the test workout
+        workoutRepository.delete("1"); // Delete the workout by ID
+        Workout retrievedWorkout = workoutRepository.findById("1"); // Try to retrieve the deleted workout
+        assertNull(retrievedWorkout, "Workout should be deleted and no longer retrievable");
+    }
+
+    @Test
+    void testFindAllWorkouts() {
+        workoutRepository.save(testWorkout); // Save the test workout
+        Workout anotherWorkout = new Workout("2", "Evening Yoga", 45);
+        workoutRepository.save(anotherWorkout); // Save another workout
+        var workouts = workoutRepository.findAll(); // Retrieve all workouts
+        assertEquals(2, workouts.size(), "There should be two workouts in the repository");
+    }
+}
+
+
+class InMemoryProfileRepositoryTest {
+
+    private InMemoryProfileRepository profileRepository;
+    private Profile testProfile;
+
+    @BeforeEach
+    void setUp() {
+        profileRepository = new InMemoryProfileRepository(); // Initialize the in-memory repository
+        testProfile = new Profile("1", "john_doe", "john_doe@example.com"); // Create a test profile
+    }
+
+    @Test
+    void testSaveProfile() {
+        profileRepository.save(testProfile); // Save the test profile
+        Profile retrievedProfile = profileRepository.findById("1"); // Retrieve the profile by ID
+        assertNotNull(retrievedProfile, "Profile should be saved and retrievable");
+        assertEquals(testProfile.getId(), retrievedProfile.getId(), "Profile ID should match");
+        assertEquals(testProfile.getUsername(), retrievedProfile.getUsername(), "Profile username should match");
+    }
+
+    @Test
+    void testFindProfileById() {
+        profileRepository.save(testProfile); // Save the test profile
+        Profile retrievedProfile = profileRepository.findById("1"); // Retrieve the profile by ID
+        assertNotNull(retrievedProfile, "Profile should be found");
+        assertEquals(testProfile.getId(), retrievedProfile.getId(), "Profile ID should match");
+    }
+
+    @Test
+    void testUpdateProfile() {
+        profileRepository.save(testProfile); // Save the test profile
+        testProfile.setUsername("john_updated"); // Update profile username
+        profileRepository.save(testProfile); // Save the updated profile
+        Profile retrievedProfile = profileRepository.findById("1"); // Retrieve the profile by ID
+        assertEquals("john_updated", retrievedProfile.getUsername(), "Profile username should be updated");
+    }
+
+    @Test
+    void testDeleteProfile() {
+        profileRepository.save(testProfile); // Save the test profile
+        profileRepository.delete("1"); // Delete the profile by ID
+        Profile retrievedProfile = profileRepository.findById("1"); // Try to retrieve the deleted profile
+        assertNull(retrievedProfile, "Profile should be deleted and no longer retrievable");
+    }
+
+    @Test
+    void testFindAllProfiles() {
+        profileRepository.save(testProfile); // Save the test profile
+        Profile anotherProfile = new Profile("2", "jane_doe", "jane_doe@example.com");
+        profileRepository.save(anotherProfile); // Save another profile
+        var profiles = profileRepository.findAll(); // Retrieve all profiles
+        assertEquals(2, profiles.size(), "There should be two profiles in the repository");
+    }
+}
+
+
+class InMemoryGoalRepositoryTest {
+
+    private InMemoryGoalRepository goalRepository;
+    private Goal testGoal;
+
+    @BeforeEach
+    void setUp() {
+        goalRepository = new InMemoryGoalRepository(); // Initialize the in-memory repository
+        testGoal = new Goal("1", "Lose Weight", 10); // Create a test goal
+    }
+
+    @Test
+    void testSaveGoal() {
+        goalRepository.save(testGoal); // Save the test goal
+        Goal retrievedGoal = goalRepository.findById("1"); // Retrieve the goal by ID
+        assertNotNull(retrievedGoal, "Goal should be saved and retrievable");
+        assertEquals(testGoal.getId(), retrievedGoal.getId(), "Goal ID should match");
+        assertEquals(testGoal.getGoalName(), retrievedGoal.getGoalName(), "Goal name should match");
+    }
+
+    @Test
+    void testFindGoalById() {
+        goalRepository.save(testGoal); // Save the test goal
+        Goal retrievedGoal = goalRepository.findById("1"); // Retrieve the goal by ID
+        assertNotNull(retrievedGoal, "Goal should be found");
+        assertEquals(testGoal.getId(), retrievedGoal.getId(), "Goal ID should match");
+    }
+
+    @Test
+    void testUpdateGoal() {
+        goalRepository.save(testGoal); // Save the test goal
+        testGoal.setGoalName("Gain Muscle"); // Update goal name
+        goalRepository.save(testGoal); // Save the updated goal
+        Goal retrievedGoal = goalRepository.findById("1"); // Retrieve the goal by ID
+        assertEquals("Gain Muscle", retrievedGoal.getGoalName(), "Goal name should be updated");
+    }
+
+    @Test
+    void testDeleteGoal() {
+        goalRepository.save(testGoal); // Save the test goal
+        goalRepository.delete("1"); // Delete the goal by ID
+        Goal retrievedGoal = goalRepository.findById("1"); // Try to retrieve the deleted goal
+        assertNull(retrievedGoal, "Goal should be deleted and no longer retrievable");
+    }
+
+    @Test
+    void testFindAllGoals() {
+        goalRepository.save(testGoal); // Save the test goal
+        Goal anotherGoal = new Goal("2", "Run a Marathon", 42);
+        goalRepository.save(anotherGoal); // Save another goal
+        var goals = goalRepository.findAll(); // Retrieve all goals
+        assertEquals(2, goals.size(), "There should be two goals in the repository");
+    }
+}
+
+
+class InMemoryNotificationRepositoryTest {
+
+    private InMemoryNotificationRepository notificationRepository;
+    private Notification testNotification;
+
+    @BeforeEach
+    void setUp() {
+        notificationRepository = new InMemoryNotificationRepository(); // Initialize the in-memory repository
+        testNotification = new Notification("1", "Workout Reminder", "Don't forget to complete your workout!"); // Create a test notification
+    }
+
+    @Test
+    void testSaveNotification() {
+        notificationRepository.save(testNotification); // Save the test notification
+        Notification retrievedNotification = notificationRepository.findById("1"); // Retrieve the notification by ID
+        assertNotNull(retrievedNotification, "Notification should be saved and retrievable");
+        assertEquals(testNotification.getId(), retrievedNotification.getId(), "Notification ID should match");
+        assertEquals(testNotification.getMessage(), retrievedNotification.getMessage(), "Notification message should match");
+    }
+
+    @Test
+    void testFindNotificationById() {
+        notificationRepository.save(testNotification); // Save the test notification
+        Notification retrievedNotification = notificationRepository.findById("1"); // Retrieve the notification by ID
+        assertNotNull(retrievedNotification, "Notification should be found");
+        assertEquals(testNotification.getId(), retrievedNotification.getId(), "Notification ID should match");
+    }
+
+    @Test
+    void testUpdateNotification() {
+        notificationRepository.save(testNotification); // Save the test notification
+        testNotification.setMessage("Don't forget to drink water!"); // Update notification message
+        notificationRepository.save(testNotification); // Save the updated notification
+        Notification retrievedNotification = notificationRepository.findById("1"); // Retrieve the notification by ID
+        assertEquals("Don't forget to drink water!", retrievedNotification.getMessage(), "Notification message should be updated");
+    }
+
+    @Test
+    void testDeleteNotification() {
+        notificationRepository.save(testNotification); // Save the test notification
+        notificationRepository.delete("1"); // Delete the notification by ID
+        Notification retrievedNotification = notificationRepository.findById("1"); // Try to retrieve the deleted notification
+        assertNull(retrievedNotification, "Notification should be deleted and no longer retrievable");
+    }
+
+    @Test
+    void testFindAllNotifications() {
+        notificationRepository.save(testNotification); // Save the test notification
+        Notification anotherNotification = new Notification("2", "Workout Complete", "Great job on completing your workout!");
+        notificationRepository.save(anotherNotification); // Save another notification
+        var notifications = notificationRepository.findAll(); // Retrieve all notifications
+        assertEquals(2, notifications.size(), "There should be two notifications in the repository");
+    }
+}
+
+
+class InMemoryDeviceRepositoryTest {
+
+    private InMemoryDeviceRepository deviceRepository;
+    private Device testDevice;
+
+    @BeforeEach
+    void setUp() {
+        deviceRepository = new InMemoryDeviceRepository(); // Initialize the in-memory repository
+        testDevice = new Device("1", "Fitness Tracker", "XYZ123"); // Create a test device
+    }
+
+    @Test
+    void testSaveDevice() {
+        deviceRepository.save(testDevice); // Save the test device
+        Device retrievedDevice = deviceRepository.findById("1"); // Retrieve the device by ID
+        assertNotNull(retrievedDevice, "Device should be saved and retrievable");
+        assertEquals(testDevice.getId(), retrievedDevice.getId(), "Device ID should match");
+        assertEquals(testDevice.getModel(), retrievedDevice.getModel(), "Device model should match");
+    }
+
+    @Test
+    void testFindDeviceById() {
+        deviceRepository.save(testDevice); // Save the test device
+        Device retrievedDevice = deviceRepository.findById("1"); // Retrieve the device by ID
+        assertNotNull(retrievedDevice, "Device should be found");
+        assertEquals(testDevice.getId(), retrievedDevice.getId(), "Device ID should match");
+    }
+
+    @Test
+    void testUpdateDevice() {
+        deviceRepository.save(testDevice); // Save the test device
+        testDevice.setModel("XYZ456"); // Update device model
+        deviceRepository.save(testDevice); // Save the updated device
+        Device retrievedDevice = deviceRepository.findById("1"); // Retrieve the device by ID
+        assertEquals("XYZ456", retrievedDevice.getModel(), "Device model should be updated");
+    }
+
+    @Test
+    void testDeleteDevice() {
+        deviceRepository.save(testDevice); // Save the test device
+        deviceRepository.delete("1"); // Delete the device by ID
+        Device retrievedDevice = deviceRepository.findById("1"); // Try to retrieve the deleted device
+        assertNull(retrievedDevice, "Device should be deleted and no longer retrievable");
+    }
+
+    @Test
+    void testFindAllDevices() {
+        deviceRepository.save(testDevice); // Save the test device
+        Device anotherDevice = new Device("2", "Heart Rate Monitor", "ABC987");
+        deviceRepository.save(anotherDevice); // Save another device
+        var devices = deviceRepository.findAll(); // Retrieve all devices
+        assertEquals(2, devices.size(), "There should be two devices in the repository");
+    }
+}
+
+
 
