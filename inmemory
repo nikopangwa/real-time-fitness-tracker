@@ -1,1 +1,241 @@
+package repositories.inmemory;
+
+import entities.User;
+import repositories.UserRepository;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+
+public class InMemoryUserRepository implements UserRepository {
+    private Map<String, User> storage = new HashMap<>();
+
+    @Override
+    public void save(User user) {
+        storage.put(user.getId(), user);
+    }
+
+    @Override
+    public User findById(String id) {
+        return storage.get(id);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return new ArrayList<>(storage.values());
+    }
+
+    @Override
+    public void deleteById(String id) {
+        storage.remove(id);
+    }
+}
+
+package repositories.inmemory;
+
+import entities.Workout;
+import repositories.WorkoutRepository;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+
+public class InMemoryWorkoutRepository implements WorkoutRepository {
+    private Map<String, Workout> storage = new HashMap<>();
+
+    @Override
+    public void save(Workout workout) {
+        storage.put(workout.getId(), workout);
+    }
+
+    @Override
+    public Workout findById(String id) {
+        return storage.get(id);
+    }
+
+    @Override
+    public List<Workout> findAll() {
+        return new ArrayList<>(storage.values());
+    }
+
+    @Override
+    public void deleteById(String id) {
+        storage.remove(id);
+    }
+}
+
+package repositories.inmemory;
+
+import entities.Profile;
+import repositories.ProfileRepository;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+
+public class InMemoryProfileRepository implements ProfileRepository {
+    private Map<String, Profile> storage = new HashMap<>();
+
+    @Override
+    public void save(Profile profile) {
+        storage.put(profile.getId(), profile);
+    }
+
+    @Override
+    public Profile findById(String id) {
+        return storage.get(id);
+    }
+
+    @Override
+    public List<Profile> findAll() {
+        return new ArrayList<>(storage.values());
+    }
+
+    @Override
+    public void deleteById(String id) {
+        storage.remove(id);
+    }
+}
+
+package repositories.inmemory;
+
+import entities.Metrics;
+import repositories.MetricsRepository;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+
+public class InMemoryMetricsRepository implements MetricsRepository {
+    private Map<String, Metrics> storage = new HashMap<>();
+
+    @Override
+    public void save(Metrics metrics) {
+        storage.put(metrics.getId(), metrics);
+    }
+
+    @Override
+    public Metrics findById(String id) {
+        return storage.get(id);
+    }
+
+    @Override
+    public List<Metrics> findAll() {
+        return new ArrayList<>(storage.values());
+    }
+
+    @Override
+    public void deleteById(String id) {
+        storage.remove(id);
+    }
+}
+
+package repositories.inmemory;
+
+import entities.Goal;
+import repositories.GoalRepository;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+
+public class InMemoryGoalRepository implements GoalRepository {
+    private Map<String, Goal> storage = new HashMap<>();
+
+    @Override
+    public void save(Goal goal) {
+        storage.put(goal.getId(), goal);
+    }
+
+    @Override
+    public Goal findById(String id) {
+        return storage.get(id);
+    }
+
+    @Override
+    public List<Goal> findAll() {
+        return new ArrayList<>(storage.values());
+    }
+
+    @Override
+    public void deleteById(String id) {
+        storage.remove(id);
+    }
+}
+
+package repositories.inmemory;
+
+import entities.Notification;
+import repositories.NotificationRepository;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+
+public class InMemoryNotificationRepository implements NotificationRepository {
+    private Map<String, Notification> storage = new HashMap<>();
+
+    @Override
+    public void save(Notification notification) {
+        storage.put(notification.getId(), notification);
+    }
+
+    @Override
+    public Notification findById(String id) {
+        return storage.get(id);
+    }
+
+    @Override
+    public List<Notification> findAll() {
+        return new ArrayList<>(storage.values());
+    }
+
+    @Override
+    public void deleteById(String id) {
+        storage.remove(id);
+    }
+}
+
+package repositories.inmemory;
+
+import entities.Device;
+import repositories.DeviceRepository;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+
+public class InMemoryDeviceRepository implements DeviceRepository {
+    private Map<String, Device> storage = new HashMap<>();
+
+    @Override
+    public void save(Device device) {
+        storage.put(device.getId(), device);
+    }
+
+    @Override
+    public Device findById(String id) {
+        return storage.get(id);
+    }
+
+    @Override
+    public List<Device> findAll() {
+        return new ArrayList<>(storage.values());
+    }
+
+    @Override
+    public void deleteById(String id) {
+        storage.remove(id);
+    }
+}
+
+
+
 
