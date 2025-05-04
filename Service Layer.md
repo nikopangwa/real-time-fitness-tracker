@@ -35,6 +35,84 @@ public class UserService {
     }
 }
 
+package tests.services;
+
+import entities.User;
+import org.junit.jupiter.api.Test;
+import repositories.inmemory.InMemoryUserRepository;
+import services.UserService;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class UserServiceTest {
+
+    @Test
+    void testCreateUserStoresUserCorrectly() {
+        InMemoryUserRepository repo = new InMemoryUserRepository();
+        UserService service = new UserService(repo);
+
+        User newUser = new User("u1", "Alice");
+        User created = service.createUser(newUser);
+
+        assertEquals("u1", created.getId());
+        assertEquals("Alice", repo.findById("u1").get().getName());
+    }
+}
+
+package tests.services;
+
+import entities.Workout;
+import org.junit.jupiter.api.Test;
+import repositories.inmemory.InMemoryWorkoutRepository;
+import services.WorkoutService;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class WorkoutServiceTest {
+
+    @Test
+    void testCompleteWorkoutMarksWorkoutAsCompleted() {
+        InMemoryWorkoutRepository repo = new InMemoryWorkoutRepository();
+        WorkoutService service = new WorkoutService(repo);
+
+        Workout workout = new Workout("w1", "Pushups", false);
+        repo.save(workout);
+
+        Workout updated = service.completeWorkout("w1");
+
+        assertTrue(updated.isCompleted());
+        assertEquals("w1", updated.getId());
+    }
+}
+
+
+package tests.services;
+
+import entities.Goal;
+import org.junit.jupiter.api.Test;
+import repositories.inmemory.InMemoryGoalRepository;
+import services.GoalService;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class GoalServiceTest {
+
+    @Test
+    void testAchieveGoalSetsStatusToAchieved() {
+        InMemoryGoalRepository repo = new InMemoryGoalRepository();
+        GoalService service = new GoalService(repo);
+
+        Goal goal = new Goal("g1", "Run 5km", false);
+        repo.save(goal);
+
+        Goal achieved = service.achieveGoal("g1");
+
+        assertTrue(achieved.isAchieved());
+        assertEquals("g1", achieved.getId());
+    }
+}
+
+
 // Workout Service
 public class WorkoutService {
     private final WorkoutRepository workoutRepo;
