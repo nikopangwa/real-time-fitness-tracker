@@ -99,3 +99,8 @@ public class GoalService {
     }
 }
 
+/tests
+  └── /services
+       ├── UserServiceTest.java
+       ├── WorkoutServiceTest.java
+       └── GoalServiceTest.java
