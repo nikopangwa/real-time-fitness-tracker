@@ -91,4 +91,157 @@ components:
           type: string
 
 
+openapi: 3.0.1
+info:
+  title: Real-Time Fitness Tracker API
+  description: API for managing users, workouts, and goals
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+
+paths:
+  /api/users:
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: List of users
+    post:
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User created
+
+  /api/users/{id}:
+    put:
+      summary: Update an existing user
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User updated
+        '404':
+          description: User not found
+
+  /api/workouts:
+    get:
+      summary: Get all workouts
+      responses:
+        '200':
+          description: List of workouts
+    post:
+      summary: Create a new workout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Workout'
+      responses:
+        '201':
+          description: Workout created
+
+  /api/workouts/{id}:
+    put:
+      summary: Update an existing workout
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Workout'
+      responses:
+        '200':
+          description: Workout updated
+
+  /api/goals:
+    get:
+      summary: Get all goals
+      responses:
+        '200':
+          description: List of goals
+    post:
+      summary: Create a new goal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Goal'
+      responses:
+        '201':
+          description: Goal created
+
+  /api/goals/{id}:
+    put:
+      summary: Update an existing goal
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Goal'
+      responses:
+        '200':
+          description: Goal updated
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+
+    Workout:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        duration:
+          type: integer
+          format: int32
+
+    Goal:
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        description:
+          type: string
+        target:
+          type: integer
+
+
 
