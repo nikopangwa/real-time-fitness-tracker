@@ -1,1 +1,2 @@
+mvnw.cmd clean package
 
