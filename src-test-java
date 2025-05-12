@@ -3,17 +3,15 @@ package com.example;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DummyFailTest {
+public class DummyPassTest {
 
     @Test
-    void thisTestWillFail() {
-        assertEquals(1, 2);  // Deliberate failure
+    void thisTestWillPass() {
+        assertEquals(2, 2); // Test passes
     }
 }
 
-
-git checkout -b test-failing-ci
 git add .
-git commit -m "Add failing dummy test to trigger CI"
+git commit -m "Replace failing test with passing test"
 git push origin test-failing-ci
 
