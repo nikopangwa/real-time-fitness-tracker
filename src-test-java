@@ -1,1 +1,19 @@
+package com.example;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DummyFailTest {
+
+    @Test
+    void thisTestWillFail() {
+        assertEquals(1, 2);  // Deliberate failure
+    }
+}
+
+
+git checkout -b test-failing-ci
+git add .
+git commit -m "Add failing dummy test to trigger CI"
+git push origin test-failing-ci
 
