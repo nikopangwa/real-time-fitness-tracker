@@ -12,3 +12,5 @@ Welcome! 🎉 We're excited you're interested in contributing to our project. Wh
    git clone https://github.com/YOUR_USERNAME/YOUR_FORK.git
    cd YOUR_FORK
 
+./mvnw clean install
+
