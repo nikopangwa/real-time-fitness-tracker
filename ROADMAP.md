@@ -37,6 +37,6 @@ This roadmap outlines upcoming features, enhancements, and technical improvement
 
 ##  Community Ideas
 
-We welcome suggestions! Please [open an issue](https://github.com/YOUR_REPO/issues/new) with your feature idea or improvement.
+We welcome suggestions! Please [open an issue](https://github.com/[//nikopangwa/real-time-fitness-tracker)/issues/new) with your feature idea or improvement.
 
 
