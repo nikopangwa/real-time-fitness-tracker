@@ -23,4 +23,33 @@ git commit -m "Fix #123: Short description of fix"
 
 git push origin fix-issue-123
 
+## 🧪 Coding Standards
+
+- Follow Java naming conventions (CamelCase for classes, lowerCamelCase for variables/methods).
+- Ensure all new code has accompanying unit tests.
+- Use `./mvnw test` to confirm all tests pass.
+- Format code using your IDE’s formatter or standard style guides.
+
+
+## 🔖 Picking Issues
+
+- Start with issues labeled `good-first-issue` for simple tasks.
+- Look at `feature-request` labels for ideas to extend functionality.
+- If unsure, open a new issue and discuss it first!
+
+git push origin fix-issue-123
+
+# Then open a Pull Request on GitHub:
+# - Write a clear title and description
+# - Link to the issue it fixes (e.g., Fixes #123)
+# - Wait for a review!
+
+---
+
+💙 Thank you for contributing! We’re excited to build this together.
+
+
+
+
+
 
