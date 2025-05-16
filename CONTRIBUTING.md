@@ -1,10 +1,10 @@
 # Contributing to [real-time-fitness-tracker]
 
-Welcome! 🎉 We're excited you're interested in contributing to our project. Whether it's fixing a bug, adding a feature, or updating documentation — your help is appreciated.
+Welcome!  We're excited you're interested in contributing to our project. Whether it's fixing a bug, adding a feature, or updating documentation — your help is appreciated.
 
 ---
 
-## 🛠️ Setup Instructions
+##  Setup Instructions
 
 1. **Fork** this repository to your GitHub account.
 2. **Clone** the forked repository:
@@ -22,7 +22,7 @@ git add .
 git commit -m "Fix #123: Short description of fix"
 
 
-## 🧪 Coding Standards
+##  Coding Standards
 
 - Follow Java naming conventions (CamelCase for classes, lowerCamelCase for variables/methods).
 - Ensure all new code has accompanying unit tests.
@@ -30,7 +30,7 @@ git commit -m "Fix #123: Short description of fix"
 - Format code using your IDE’s formatter or standard style guides.
 
 
-## 🔖 Picking Issues
+##  Picking Issues
 
 - Start with issues labeled `good-first-issue` for simple tasks.
 - Look at `feature-request` labels for ideas to extend functionality.
@@ -45,7 +45,7 @@ git push origin fix-issue-123
 
 ---
 
-💙 Thank you for contributing! We’re excited to build this together.
+ Thank you for contributing! We’re excited to build this together.
 
 
 
