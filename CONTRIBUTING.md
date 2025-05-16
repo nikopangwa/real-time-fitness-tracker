@@ -21,7 +21,6 @@ git checkout -b fix-issue-123
 git add .
 git commit -m "Fix #123: Short description of fix"
 
-git push origin fix-issue-123
 
 ## 🧪 Coding Standards
 
