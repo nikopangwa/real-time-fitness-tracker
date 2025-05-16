@@ -13,3 +13,11 @@ Welcome! 🎉 We're excited you're interested in contributing to our project. Wh
    cd YOUR_FORK
 
 ./mvnw clean install
+
+./mvnw test
+
+git checkout -b fix-issue-123
+
+git add .
+git commit -m "Fix #123: Short description of fix"
+
