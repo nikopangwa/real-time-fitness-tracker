@@ -1,4 +1,4 @@
-# Contributing to [Your Project Name]
+# Contributing to [real-time-fitness-tracker]
 
 Welcome! 🎉 We're excited you're interested in contributing to our project. Whether it's fixing a bug, adding a feature, or updating documentation — your help is appreciated.
 
@@ -20,4 +20,7 @@ git checkout -b fix-issue-123
 
 git add .
 git commit -m "Fix #123: Short description of fix"
+
+git push origin fix-issue-123
+
 
