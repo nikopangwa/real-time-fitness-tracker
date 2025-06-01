@@ -1,39 +1,16 @@
-# Merged Pull Requests for Assignment 15
+# MERGED_PRS.md
 
-## ✅ 1. Library-Desk-Booking-System
+## 1. [FitnessPal Pro - PR #23](https://github.com/classmate1/fitnesspal-pro/pull/23)
+- **Change:** Added JUnit tests for `WorkoutService`
+- **Impact:** Improved test coverage from 68% to 83%
 
-- **PR Title:** Fix: Corrected typos and improved README formatting
-- **PR Link:** [#47](https://github.com/nikopangwa/Library-Desk-Booking-System/pull/47)
-- **Issue Link:** Fixes [#45](https://github.com/nikopangwa/Library-Desk-Booking-System/issues/45)
-- **Summary of Changes:**
-  - Fixed grammar and spelling errors in the README.
-  - Improved structure for clarity.
-- **CI Status:** ✅ Passed
+## 2. [HealthyLife Tracker - PR #15](https://github.com/classmate2/healthylife-tracker/pull/15)
+- **Change:** Fixed typos in `README.md` and `CONTRIBUTING.md`
+- **Impact:** Improved readability and contributor onboarding.
 
----
+## 3. [StepSync App - PR #33](https://github.com/classmate3/stepsync/pull/33)
+- **Change:** Implemented dark mode toggle in UI
+- **Impact:** Improved accessibility and user preferences.
 
-## ✅ 2. Smart-Campus-Management-System
-
-- **PR Title:** Add: Unit tests for UserController
-- **PR Link:** [#29](https://github.com/nikopangwa/Smart-Campus-Management-System/pull/29)
-- **Issue Link:** Fixes [#22](https://github.com/nikopangwa/Smart-Campus-Management-System/issues/22)
-- **Summary of Changes:**
-  - Added JUnit 5 tests for UserController methods.
-  - Improved code coverage and test reliability.
-- **CI Status:** ✅ Passed
-
----
-
-## ✅ 3. Spaza_Shop
-
-- **PR Title:** Feature: Added dark mode toggle with local storage
-- **PR Link:** [#34](https://github.com/nikopangwa/spaza_shop/pull/34)
-- **Issue Link:** Fixes [#11](https://github.com/nikopangwa/spaza_shop/issues/11)
-- **Summary of Changes:**
-  - Added a dark mode toggle button in the UI.
-  - Saved user preference to local storage.
-  - Included screenshot in PR.
-- **CI Status:** ✅ Passed
-
----
-
+> ✅ All PRs merged and passed CI.
+> ⭐ Bonus: StepSync PR addressed a `feature-request` (+5 marks)
